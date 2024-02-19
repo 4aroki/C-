@@ -1,39 +1,50 @@
-int[,] matrix = new int[3, 5];
+﻿﻿// Создать двумерный массив с размерами
+// 3 х 5, состоящий из целых чисел
+// Вывести его элементы на экран
 
+// int[,] matrix = new int [3,5];
+// Random rnd = new Random();
+// for(int i = 0; i < matrix.GetLength(0); i++)
+// {
+//     for(int j = 0; j < matrix.GetLength(1); j++)
+//     {
+//         matrix[i,j] = rnd.Next(1, 11);
+//     }
+// }
 
-Random rdn = new Random();
-for (int i = 0; i < matrix.GetLength(0); i++)
+// for(int i = 0; i < matrix.GetLength(0); i++)
+// {
+//     for(int j = 0; j < matrix.GetLength(1); j++)
+//     {
+//         System.Console.Write($"{matrix[i,j]} "); // такой вывод называется интерполяция строк
+//     }
+//     System.Console.WriteLine();
+// }
+
+// вывод в виде функции (которая сформирует дввумерный массив из случайных целых чисел)
+int [,] CreateMatrix (int rowCount, int colomsCount)
 {
-    for (int j = 0; j < matrix.GetLength(1); j++)
+int[,] matrix = new int[rowCount,colomsCount];
+Random rnd = new Random();
+for(int i = 0; i < matrix.GetLength(0); i++)
+{
+    for(int j = 0; j < matrix.GetLength(1); j++)
     {
-
-        matrix[i, j] = rdn.Next(1, 11);
+        matrix[i,j] = rnd.Next(1, 11);
     }
-
 }
-
-for (int i = 0; i < matrix.GetLength(0); i++)
-{
-    for (int j = 0; j < matrix.GetLength(1); j++)
-    {
-        Console.WriteLine($"{matrix[i, j]} ");
-    }
+return matrix;
 }
-
-
-    int [,] Creatematrix (int rowCount, int columnsCount)
-    {
-        int[,] matrix = new int[3, 5];
-
-Random rdn = new Random();
-for (int i = 0; i < matrix.GetLength(0); i++)
+void ShowMatrix(int[,] matrix)
 {
-    for (int j = 0; j < matrix.GetLength(1); j++)
+    for(int i = 0; i < matrix.GetLength(0); i++)
+{
+    for(int j = 0; j < matrix.GetLength(1); j++)
     {
-
-        matrix[i, j] = rdn.Next(1, 11);
+        System.Console.Write($"{matrix[i,j]} "); // такой вывод называется интерполяция строк
     }
-
-    }
-        
-    
+    System.Console.WriteLine();
+}
+}
+int[,] matrix = CreateMatrix(4, 5);
+ShowMatrix(matrix);
